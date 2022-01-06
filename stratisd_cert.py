@@ -354,7 +354,7 @@ class StratisdCertify(StratisCertify):  # pylint: disable=too-many-public-method
 
     def test_pool_create_redundancy(self):
         """
-        Test creating a pool with redundancy (which should fail, for now.)
+        Test that creating a pool with redundancy fails.
         """
         pool_name = p_n()
         redundancy = 1
@@ -363,7 +363,7 @@ class StratisdCertify(StratisCertify):  # pylint: disable=too-many-public-method
             StratisDbus.pool_create(
                 pool_name, StratisCertify.DISKS, redundancy=redundancy
             ),
-            dbus.UInt16(0),
+            dbus.UInt16(1),
         )
 
     def test_pool_create_permissions(self):
