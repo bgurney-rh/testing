@@ -360,7 +360,9 @@ class StratisdCertify(StratisCertify):  # pylint: disable=too-many-public-method
         redundancy = 1
 
         self._unittest_command(
-            StratisDbus.pool_create(pool_name, StratisCertify.DISKS, redundancy=redundancy),
+            StratisDbus.pool_create(
+                pool_name, StratisCertify.DISKS, redundancy=redundancy
+            ),
             dbus.UInt16(0),
         )
 

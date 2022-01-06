@@ -215,7 +215,9 @@ class StratisDbus:
         return iface.ListKeys(timeout=StratisDbus._TIMEOUT)
 
     @staticmethod
-    def pool_create(pool_name, devices, *, key_desc=None, clevis_info=None, redundancy=None):
+    def pool_create(
+        pool_name, devices, *, key_desc=None, clevis_info=None, redundancy=None
+    ):
         """
         Create a pool
         :param str pool_name: The name of the pool to create
