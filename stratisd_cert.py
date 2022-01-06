@@ -352,6 +352,18 @@ class StratisdCertify(StratisCertify):  # pylint: disable=too-many-public-method
             dbus.UInt16(0),
         )
 
+    def test_pool_create_redundancy(self):
+        """
+        Test creating a pool with redundancy (which should fail, for now.)
+        """
+        pool_name = p_n()
+        redundancy = 1
+
+        self._unittest_command(
+            StratisDbus.pool_create(pool_name, StratisCertify.DISKS, redundancy=redundancy),
+            dbus.UInt16(0),
+        )
+
     def test_pool_create_permissions(self):
         """
         Test that creating a pool fails when root permissions are dropped.
