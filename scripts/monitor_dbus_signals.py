@@ -87,6 +87,8 @@ try:
             else:
                 _MO[object_path] = interfaces_added
 
+        print("Interfaces added:", object_path, "\n", interfaces_added, "\n")
+
     def _interfaces_removed(object_path, interfaces):
         """
         Updates current ManagedObjects result on interfaces removed signal
@@ -111,6 +113,8 @@ try:
                 # has been removed.
                 if _MO[object_path] == dict():
                     del _MO[object_path]
+
+        print("Interfaces removed:", object_path, "\n", interfaces, "\n")
 
     def _properties_changed_gen(object_path_prefix):
         """
@@ -150,6 +154,17 @@ try:
                     data[interface_name][prop] = value
                 for prop in properties_invalidated:
                     data[interface_name][prop] = INVALIDATED
+
+            print(
+                "Properties changed:",
+                object_path,
+                interface_name,
+                "\n",
+                properties_invalidated,
+                "\n",
+                properties_changed,
+                "\n",
+            )
 
         return _properties_changed
 
